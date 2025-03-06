@@ -3,7 +3,7 @@ import PhoneViewfinder from './PhoneViewfinder';
 import CarReveal from './CarReveal';
 
 const ARExperience = () => {
-  const [progress, setProgress] = useState(0.5);
+  const [progress, setProgress] = useState(0.1);
   let resetViewfinder: () => void;
 
   const handlePositionChange = useCallback((_: number, progress: number) => {
@@ -33,6 +33,7 @@ const ARExperience = () => {
           <PhoneViewfinder
             onPositionChange={handlePositionChange}
             onReset={handleResetCallback}
+            initialPosition={0.1}
           >
             <CarReveal progress={progress} />
           </PhoneViewfinder>

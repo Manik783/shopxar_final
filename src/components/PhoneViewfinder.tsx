@@ -3,17 +3,19 @@ import React, { useState, useRef, useEffect } from 'react';
 interface PhoneViewfinderProps {
   children: React.ReactNode;
   onPositionChange: (x: number, progress: number) => void;
-  onReset: () => void;
+  onReset: (reset: () => void) => void;
+  initialPosition?: number;
 }
 
 const PhoneViewfinder: React.FC<PhoneViewfinderProps> = ({
   children,
   onPositionChange,
-  onReset
+  onReset,
+  initialPosition = 0.5
 }) => {
   const phoneRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState({ x: 0, startX: 0, progress: 0.5 });
+  const [position, setPosition] = useState({ x: 0, startX: 0, progress: initialPosition });
   const [phoneSize, setPhoneSize] = useState({ width: 300, height: 600 });
   const [constraints, setConstraints] = useState({ min: 0, max: 0 });
 
@@ -31,8 +33,11 @@ const PhoneViewfinder: React.FC<PhoneViewfinderProps> = ({
         const maxDistance = parentWidth * 0.4;
         setConstraints({ min: -maxDistance, max: maxDistance });
 
-        // Reset position when constraints change
-        handleReset();
+        // Set initial position based on initialPosition prop
+        const totalRange = maxDistance * 2;
+        const initialX = -maxDistance + (totalRange * initialPosition);
+        setPosition({ x: initialX, startX: 0, progress: initialPosition });
+        onPositionChange(initialX, initialPosition);
       }
     };
 
@@ -42,7 +47,7 @@ const PhoneViewfinder: React.FC<PhoneViewfinderProps> = ({
     return () => {
       window.removeEventListener('resize', calculateConstraints);
     };
-  }, []);
+  }, [initialPosition, onPositionChange]);
 
   const handleReset = () => {
     setPosition({ x: 0, startX: 0, progress: 0.5 });
@@ -50,8 +55,8 @@ const PhoneViewfinder: React.FC<PhoneViewfinderProps> = ({
   };
 
   useEffect(() => {
-    onReset = handleReset;
-  }, []);
+    onReset(handleReset);
+  }, [onReset]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
