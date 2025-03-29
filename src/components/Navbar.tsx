@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-14 md:h-16">
           <div className="flex-shrink-0">
             <span className="text-white text-base md:text-lg font-semibold">
-              AR Viewfinder
+              Shopxar
             </span>
           </div>
           
