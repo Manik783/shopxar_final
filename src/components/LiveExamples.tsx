@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import ProductPopup from './ProductPopup';
+import { Product } from '../types';
 
 declare global {
   namespace JSX {
@@ -17,25 +19,33 @@ const sections = [
     items: [
       {
         id: 1,
-        title: 'Astronaut',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
       },
       {
         id: 2,
-        title: 'RobotExpressive',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
       },
       {
         id: 3,
-        title: 'NeilArmstrong',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/NeilArmstrong.usdz',
       },
       {
         id: 4,
-        title: 'RobotExpressive',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
       },
@@ -48,19 +58,25 @@ const sections = [
      
       {
         id: 5,
-        title: 'RobotExpressive',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
       },
       {
         id: 6,
-        title: 'Astronaut Duplicate',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
       },
       {
         id: 7,
-        title: 'RobotExpressive',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
       },
@@ -73,45 +89,59 @@ const sections = [
      
       {
         id: 8,
-        title: 'Astronaut Duplicate',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
       },
       {
         id: 9,
-        title: 'RobotExpressive',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
 
       },
       {
         id: 10,
-        title: 'RobotExpressive',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
       },
       {
         id: 11,
-        title: 'Astronaut Duplicate',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
       },
       {
         id: 12,
-        title: 'RobotExpressive',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
 
       },
       {
         id: 13,
-        title: 'Astronaut Duplicate',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
       },
       {
         id: 14,
-        title: 'Astronaut Duplicate',
+        title: 'Modern Sofa',
+        description: 'Contemporary 3-seater sofa with premium upholstery',
+        price: '$1,299',
         modelSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
         iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
       },
@@ -122,11 +152,13 @@ const sections = [
 
 export default function LiveExamples() {
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
-  const [activeQR, setActiveQR] = useState(null);
+  const [activeQR, setActiveQR] = useState<number | null>(null);
   const [qrCode, setQRCode] = useState('');
   const [isMobile, setIsMobile] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
   const [modelsLoaded, setModelsLoaded] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const sectionContainerRef = useRef<HTMLDivElement>(null);
 
@@ -151,7 +183,7 @@ export default function LiveExamples() {
     }
   }, []);
 
-  const handleSwipe = (direction) => {
+  const handleSwipe = (direction: 'left' | 'right') => {
     if (direction === 'left' && activeSectionIndex < sections.length - 1) {
       setActiveSectionIndex(activeSectionIndex + 1);
     } else if (direction === 'right' && activeSectionIndex > 0) {
@@ -159,11 +191,11 @@ export default function LiveExamples() {
     }
   };
 
-  const handleDotClick = (index) => {
+  const handleDotClick = (index: number) => {
     setActiveSectionIndex(index);
   };
 
-  const generateARUrl = (item) => {
+  const generateARUrl = (item: Product) => {
     const baseUrl = window.location.origin;
     const params = new URLSearchParams({
       model: isIOS ? item.iosSrc : item.modelSrc,
@@ -173,12 +205,12 @@ export default function LiveExamples() {
     return `${baseUrl}/ar-view?${params.toString()}`;
   };
 
-  const handleViewAR = async (id) => {
+  const handleViewAR = async (id: number) => {
     const item = sections.flatMap((section) => section.items).find((item) => item.id === id);
     if (!item) return;
 
     if (isMobile) {
-      const modelViewer = document.querySelector(`#model-${id}`);
+      const modelViewer = document.querySelector(`#model-${id}`) as any;
       if (modelViewer?.activateAR) modelViewer.activateAR();
     } else {
       try {
@@ -193,13 +225,43 @@ export default function LiveExamples() {
     }
   };
 
+  const handleProductClick = (item: Product) => {
+    // Add a small delay to prevent immediate popup opening on model rotation
+    const timeoutId = setTimeout(() => {
+      setSelectedProduct(item);
+      setIsPopupOpen(true);
+      // Remove the body scroll lock since we want scrolling in the popup
+      // document.body.style.overflow = 'hidden';
+    }, 200); // 200ms delay
+
+    // Store the timeout ID to clear it if needed
+    return () => clearTimeout(timeoutId);
+  };
+
   return (
     <section className="relative py-3 md:py-12 lg:py-16 xl:py-24 site-gradient from-[#1a1a24] to-[#121218]">
-      <div className="container mx-auto px-4 sm:px-6 text-center relative z-[5] mb-8 md:mb-6 lg:mb-8">
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-white mb-2 md:mb-3">Live Examples</h2>
-        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto">
+      <div className="container mx-auto px-2 sm:px-6 text-center relative z-[5] mb-4 md:mb-6 lg:mb-8">
+        <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-white mb-2 md:mb-3">Live Examples</h2>
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto px-2">
           See our technology in action with these interactive demos
         </p>
+      </div>
+  
+      {/* Category Buttons */}
+      <div className="flex justify-center gap-4 mb-6 md:mb-8">
+        {sections.map((section, index) => (
+          <button
+            key={section.id}
+            onClick={() => handleDotClick(index)}
+            className={`px-4 py-2 text-sm md:text-base font-medium transition-colors ${
+              index === activeSectionIndex
+                ? 'text-green-500 border-b-2 border-green-500'
+                : 'text-gray-400 hover:text-gray-300'
+            }`}
+          >
+            {section.title}
+          </button>
+        ))}
       </div>
   
       {/* Section Slider */}
@@ -210,15 +272,18 @@ export default function LiveExamples() {
           style={{ transform: `translateX(-${activeSectionIndex * 100}%)` }}
         >
           {sections.map((section) => (
-            <div key={section.id} className="min-w-full flex flex-col items-center px-2 sm:px-4">
-              <h3 className="text-xl sm:text-2xl md:text-2xl font-bold text-white mb-3 sm:mb-4 text-center w-full">{section.title}</h3>
-              <div className="flex overflow-x-auto snap-x snap-mandatory pb-9 md:justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 w-full scrollbar-hide">
+            <div key={section.id} className="min-w-full flex flex-col items-center px-1 sm:px-4">
+              <div className="flex overflow-x-auto snap-x snap-mandatory pb-6 md:pb-9 md:justify-center gap-2 sm:gap-4 md:gap-6 lg:gap-8 w-full scrollbar-hide">
                 {section.items.map((item) => (
-                  <div key={item.id} className="relative w-[265px] sm:w-[290px] md:w-[320px] h-[320px] sm:h-[340px] md:h-[360px] flex-shrink-0 glass-card rounded-lg snap-center">
+                  <div 
+                    key={item.id} 
+                    className="relative w-[240px] sm:w-[290px] md:w-[320px] h-[400px] sm:h-[440px] md:h-[460px] flex-shrink-0 glass-card rounded-lg snap-center cursor-pointer"
+                    onClick={() => handleProductClick(item)}
+                  >
                     {/* Background Frosted Effect */}
                     <div className="absolute inset-0 transparent backdrop-blur-md rounded-lg -z-[1]"></div>
                     {/* Model Viewer Container */}
-                    <div className="w-full h-[280px] sm:h-[240px] md:h-[265px] lg:h-[300px]">
+                    <div className="w-full h-[220px] sm:h-[240px] md:h-[265px] lg:h-[300px]">
                       {modelsLoaded ? (
                         <model-viewer
                           id={`model-${item.id}`}
@@ -236,15 +301,19 @@ export default function LiveExamples() {
                         </div>
                       )}
                     </div>
-                    {/* Title and AR Button */}
+                    {/* Product Info */}
                     <div className="absolute bottom-0 left-0 right-0 px-3 py-2">
-                      <h4 className="text-white text-medium sm:text-base font-semibold truncate">{item.title}</h4>
-                      <button 
-                        onClick={() => handleViewAR(item.id)} 
-                        className="text-green-500 hover:text-green-400 text-s sm:text-sm font-medium mt-1 transition-colors"
-                      >
-                        View in AR
-                      </button>
+                      <h4 className="text-white text-sm sm:text-base font-semibold">{item.title}</h4>
+                      <p className="text-gray-300 text-xs sm:text-sm mt-1 line-clamp-2">{item.description}</p>
+                      <div className="flex justify-between items-center mt-2">
+                        <span className="text-white text-sm sm:text-base font-medium">{item.price}</span>
+                        <button 
+                          onClick={() => handleViewAR(item.id)} 
+                          className="text-green-500 hover:text-green-400 text-xs sm:text-sm font-medium transition-colors"
+                        >
+                          View in AR
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -253,24 +322,11 @@ export default function LiveExamples() {
           ))}
         </div>
   
-        {/* Navigation Dots */}
-        <div className="flex justify-center mt-2 md:mt-4">
-          {sections.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleDotClick(index)}
-              className={`w-2 h-2 md:w-2.5 md:h-2.5 rounded-full mx-1 ${
-                index === activeSectionIndex ? "bg-green-500" : "bg-gray-400"
-              }`}
-            ></button>
-          ))}
-        </div>
-  
         {/* Navigation Arrows */}
         {activeSectionIndex > 0 && (
           <button
             onClick={() => handleSwipe('right')}
-            className="absolute left-1 sm:left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-gray-300/80 hover:bg-gray-300 p-1 rounded-full"
+            className="absolute left-0 sm:left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-gray-300/80 hover:bg-gray-300 p-1 rounded-full"
             aria-label="Previous section"
           >
             <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6" />
@@ -279,7 +335,7 @@ export default function LiveExamples() {
         {activeSectionIndex < sections.length - 1 && (
           <button
             onClick={() => handleSwipe('left')}
-            className="absolute right-1 sm:right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-gray-300/80 hover:bg-gray-300 p-1 rounded-full"
+            className="absolute right-0 sm:right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-gray-300/80 hover:bg-gray-300 p-1 rounded-full"
             aria-label="Next section"
           >
             <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6" />
@@ -293,7 +349,7 @@ export default function LiveExamples() {
           className="fixed inset-0 bg-black/70 flex items-center justify-center z-[100]"
           onClick={() => setActiveQR(null)}
         >
-          <div className="bg-white p-3 sm:p-4 md:p-6 rounded-lg shadow-lg max-w-[250px] sm:max-w-sm w-full mx-4 sm:mx-auto text-center border border-gray-700">
+          <div className="bg-white p-2 sm:p-4 md:p-6 rounded-lg shadow-lg max-w-[200px] sm:max-w-sm w-full mx-2 sm:mx-auto text-center border border-gray-700">
             {qrCode && (
               <>
                 <img src={qrCode} alt="QR Code" className="mx-auto max-w-full h-auto" />
@@ -303,5 +359,15 @@ export default function LiveExamples() {
           </div>
         </div>
       )}
+
+      {/* Add the ProductPopup */}
+      {selectedProduct && (
+        <ProductPopup
+          isOpen={isPopupOpen}
+          onClose={() => setIsPopupOpen(false)}
+          product={selectedProduct}
+        />
+      )}
     </section>
-  );}
+  );
+}

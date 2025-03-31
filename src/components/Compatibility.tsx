@@ -11,19 +11,22 @@ const Compatibility = () => {
     { name: 'Magento', icon: ShoppingBag },
   ];
 
+  // Duplicate platforms for seamless loop
+  const duplicatedPlatforms = [...platforms, ...platforms];
+
   return (
-    <section className="py-6 md:py-8 site-gradient compatibility-section">
+    <section className="py-6 md:py-8 site-gradient compatibility-section overflow-hidden">
       <div className="gradient-container">
         <h2 className="text-center text-gray-400 text-xs md:text-sm uppercase tracking-wider mb-4 md:mb-6">
           Compatible with
         </h2>
-        <div className="flex flex-wrap justify-center items-center gap-4 md:gap-10">
-          {platforms.map((platform, index) => {
+        <div className="flex items-center gap-4 md:gap-10 animate-scroll">
+          {duplicatedPlatforms.map((platform, index) => {
             const Icon = platform.icon;
             return (
               <div 
                 key={index} 
-                className="flex items-center gap-1.5 md:gap-2 text-gray-400 hover:text-gray-200 transition-colors"
+                className="flex items-center gap-1.5 md:gap-2 text-gray-400 hover:text-gray-200 transition-colors whitespace-nowrap"
               >
                 <Icon size={20} className="w-5 h-5 md:w-6 md:h-6" />
                 <span className="text-sm md:text-base font-medium">{platform.name}</span>

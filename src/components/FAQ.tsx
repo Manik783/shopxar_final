@@ -24,7 +24,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="py-16 bg-[#0a0a0f]">
+    <div className="py-16 site-gradient">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-white mb-2 text-center">Frequently Asked Questions</h2>
         <p className="text-gray-300 mb-12 text-center">Everything you need to know about our service</p>
