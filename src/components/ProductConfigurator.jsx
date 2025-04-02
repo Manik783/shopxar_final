@@ -585,17 +585,18 @@ const ProductConfigurator = () => {
                 </svg>
               </button>
               
-              {/* Dimension button with Measurement icon - FOURTH */}
+              {/* Dimension button with custom SVG icon */}
               <button 
                 className={`w-10 h-10 flex items-center justify-center rounded-md shadow-md bg-white text-gray-800 hover:bg-gray-100 focus:outline-none border ${showDimensions ? 'border-blue-500' : 'border-gray-200'}`}
                 onClick={toggleDimensions}
                 title="Show Dimensions"
               >
-                <img 
-                  src="/assets/viewer-tooltip-icons/Measurement.png" 
-                  alt="Dimension" 
-                  className="w-5 h-5"
-                />
+                <div className="utils-item" style={{ display: "flex" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 2H3C2.4 2 2 2.4 2 3V21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21V3C22 2.4 21.6 2 21 2ZM20 20H4V4H20V20Z" fill="currentColor"/>
+                    <path d="M19 9H5V7H19V9ZM19 13H5V11H19V13ZM19 17H5V15H19V17Z" fill="currentColor"/>
+                  </svg>
+                </div>
               </button>
               
               {/* Screenshot button - FIFTH */}

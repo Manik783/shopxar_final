@@ -68,7 +68,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen site-gradient from-[#1a1a24] to-[#121218] overflow-hidden">
+    <section className="relative min-h-screen  from-[#1a1a24] to-[#121218] overflow-hidden">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-radial-gradient from-[#1a1a24] to-[#121218] opacity-80"></div>
 
