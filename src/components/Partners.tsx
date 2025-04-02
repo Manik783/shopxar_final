@@ -29,26 +29,34 @@ const partners = [
 
 export default function Partners() {
   return (
-    <div className="py-16 bg-[#121218]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-white mb-2 text-center">Backed & Supported by</h2>
-        <p className="text-gray-300 mb-12 text-center">Trusted by industry leaders worldwide</p>
+    <section className="bg-[#181819] py-20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-[#fff4e2] text-5xl font-bold mb-4">
+            Backed & <span className="text-[#677870]">Supported</span> by
+          </h2>
+          <p className="text-[#fff4e2]/60 text-xl font-medium">
+            Trusted by industry leaders worldwide
+          </p>
+        </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {partners.map((partner) => (
             <div 
               key={partner.name}
-              className="flex items-center justify-center bg-[#1a1a24] p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              className="flex items-center justify-center bg-[#1e1e1f] p-8 rounded-2xl 
+                hover:bg-[#242425] transition-all duration-300 group"
             >
               <img 
                 src={partner.logo} 
                 alt={partner.name}
-                className="max-h-12 object-contain"
+                className="max-h-12 object-contain grayscale opacity-50 
+                  group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
               />
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

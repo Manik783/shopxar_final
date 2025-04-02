@@ -15,7 +15,7 @@ const faqs = [
     answer: 'Most products can be transformed into 3D visualizations within 24-48 hours. Complex products might take longer depending on the detail required.',
   },
   {
-    question: 'How are I charged?',
+    question: 'How am I charged?',
     answer: 'We offer flexible pricing plans based on your needs. You can choose from monthly subscriptions or pay-per-model options. Contact us for custom enterprise solutions.',
   },
 ];
@@ -24,38 +24,49 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="py-16 site-gradient">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-white mb-2 text-center">Frequently Asked Questions</h2>
-        <p className="text-gray-300 mb-12 text-center">Everything you need to know about our service</p>
+    <section className="bg-[#181819] py-20">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-[#fff4e2] text-5xl font-bold mb-4">
+            Frequently Asked <span className="text-[#677870]">Questions</span>
+          </h2>
+          <p className="text-[#fff4e2]/60 text-xl font-medium">
+            Everything you need to know about our service
+          </p>
+        </div>
         
-        <div className="space-y-4">
+        <div className="space-y-6">
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="border-b border-gray-700 last:border-0"
+              className="bg-[#1e1e1f] rounded-2xl overflow-hidden transition-all duration-300
+                hover:bg-[#242425] hover:shadow-lg hover:shadow-[#677870]/5"
             >
               <button
-                className="w-full py-4 flex items-center justify-between text-left"
+                className="w-full px-6 py-5 flex items-center justify-between text-left group"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="text-lg font-medium text-white">{faq.question}</span>
+                <span className="text-lg font-medium text-[#fff4e2] group-hover:text-[#677870] transition-colors">
+                  {faq.question}
+                </span>
                 {openIndex === index ? (
-                  <ChevronUp className="h-5 w-5 text-gray-400" />
+                  <ChevronUp className="h-5 w-5 text-[#677870]" />
                 ) : (
-                  <ChevronDown className="h-5 w-5 text-gray-400" />
+                  <ChevronDown className="h-5 w-5 text-[#fff4e2]/60 group-hover:text-[#677870] transition-colors" />
                 )}
               </button>
               
               {openIndex === index && (
-                <div className="pb-4">
-                  <p className="text-gray-300">{faq.answer}</p>
+                <div className="px-6 pb-5">
+                  <p className="text-[#fff4e2]/80 leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               )}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -80,7 +80,7 @@ const DrawerModel = ({ materials, selectedSize, showDimensions, isDarkMode }) =>
           {/* Width label */}
           <Html position={[0, -0.15, 0]} center>
             <div style={{ 
-              backgroundColor: isDarkMode ? 'rgba(0,0,0,0.7)' : 'rgba(255,255,255,0.7)', 
+              backgroundColor: isDarkMode ? 'rgba(0,0,0,0.7)' : 'rgba(255, 244, 226, 0.8)', 
               padding: '3px 6px', 
               borderRadius: '4px', 
               fontFamily: 'Arial', 
@@ -329,7 +329,7 @@ const Fallback = () => (
 );
 
 const ProductConfigurator = () => {
-  const [isModelLoaded, setIsModelLoaded] = useState(false);
+  const [isModelLoaded, setIsModelLoaded] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [showDimensions, setShowDimensions] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(0); // 0 to 10 scale
@@ -438,22 +438,9 @@ const ProductConfigurator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white site-gradient text-gray-900">
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white">
-            3D Product Configurator
-          </h2>
-          <p className="text-lg max-w-3xl mx-auto text-gray-200">
-            Interactive 3D viewer with customization options
-          </p>
-        </div>
-
-        <div 
-          ref={viewerRef}
-          className="rounded-lg overflow-hidden shadow-lg border border-gray-200 relative"
-          style={{ height: '60vh' }}
-        >
+    <div className="h-full bg-[#fff4e2]" ref={viewerRef}>
+      <div className="h-full relative">
+        <div className="h-full relative">
           <ThreeJSErrorBoundary>
             {!isModelLoaded ? (
               <Fallback />
@@ -463,9 +450,10 @@ const ProductConfigurator = () => {
                 shadows 
                 gl={{ 
                   antialias: true,
-                  preserveDrawingBuffer: true // Important for screenshots
+                  preserveDrawingBuffer: true
                 }}
                 camera={{ position: [0, 0, 5], fov: 45 }}
+                style={{ height: '100%' }}
               >
                 <Suspense fallback={null}>
                   <color attach="background" args={[isDarkMode ? '#000000' : '#f9fafb']} />
@@ -502,36 +490,8 @@ const ProductConfigurator = () => {
             )}
           </ThreeJSErrorBoundary>
           
-          {/* Screenshot capture indicator */}
-          {isCapturing && (
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="bg-white rounded-lg p-4 flex flex-col items-center">
-                <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500 mb-2"></div>
-                <p className="text-sm font-medium">Capturing Screenshot...</p>
-              </div>
-            </div>
-          )}
-          
-          {/* AR View button - styled like in the screenshot */}
           {!isCapturing && (
-            <div className="absolute left-4 bottom-4">
-              <button
-                className="flex items-center justify-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-md shadow-md transition-colors duration-200 border border-gray-200"
-                onClick={() => alert('AR functionality would launch here')}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                  <circle cx="12" cy="12" r="3"></circle>
-                </svg>
-                View in your room
-              </button>
-            </div>
-          )}
-          
-          {/* Professional Viewer Controls - styled like in the screenshot */}
-          {!isCapturing && (
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
-              {/* Light/Dark Mode Toggle button - FIRST */}
+            <div className="absolute right-6 top-1/2 transform -translate-y-1/2 flex flex-col gap-3">
               <button 
                 className={`w-10 h-10 flex items-center justify-center rounded-md shadow-md bg-white text-gray-800 hover:bg-gray-100 focus:outline-none border ${isDarkMode ? 'border-blue-500' : 'border-gray-200'}`}
                 onClick={toggleDarkMode}
@@ -556,7 +516,6 @@ const ProductConfigurator = () => {
                 ) }
               </button>
               
-              {/* Zoom In button - SECOND */}
               <button 
                 className="w-10 h-10 flex items-center justify-center rounded-md shadow-md bg-white text-gray-800 hover:bg-gray-100 focus:outline-none border border-gray-200"
                 onClick={handleZoomIn}
@@ -571,7 +530,6 @@ const ProductConfigurator = () => {
                 </svg>
               </button>
               
-              {/* Zoom Out button - THIRD */}
               <button 
                 className="w-10 h-10 flex items-center justify-center rounded-md shadow-md bg-white text-gray-800 hover:bg-gray-100 focus:outline-none border border-gray-200"
                 onClick={handleZoomOut}
@@ -585,7 +543,6 @@ const ProductConfigurator = () => {
                 </svg>
               </button>
               
-              {/* Dimension button with custom SVG icon */}
               <button 
                 className={`w-10 h-10 flex items-center justify-center rounded-md shadow-md bg-white text-gray-800 hover:bg-gray-100 focus:outline-none border ${showDimensions ? 'border-blue-500' : 'border-gray-200'}`}
                 onClick={toggleDimensions}
@@ -599,7 +556,6 @@ const ProductConfigurator = () => {
                 </div>
               </button>
               
-              {/* Screenshot button - FIFTH */}
               <button 
                 className="w-10 h-10 flex items-center justify-center rounded-md shadow-md bg-white text-gray-800 hover:bg-gray-100 focus:outline-none border border-gray-200"
                 onClick={takeScreenshot}
@@ -611,7 +567,7 @@ const ProductConfigurator = () => {
                 </svg>
               </button>
               
-              {/* Fullscreen button - SIXTH (LAST) */}
+              {/* Fullscreen button */}
               <button 
                 className="w-10 h-10 flex items-center justify-center rounded-md shadow-md bg-white text-gray-800 hover:bg-gray-100 focus:outline-none border border-gray-200"
                 onClick={() => {
@@ -632,46 +588,30 @@ const ProductConfigurator = () => {
               </button>
             </div>
           )}
-        </div>
-        
-        {/* Size selector */}
-        <div className="mt-8 p-4 rounded-lg border border-gray-200 bg-black/50">
-          <h3 className="text-lg font-bold mb-3 text-white">Select Size</h3>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
-            {['single-drawer', 'three-drawer', 'chest', 'single-wardrobe', 'double-wardrobe'].map((size) => (
+          
+          {!isCapturing && (
+            <div className="absolute left-6 bottom-6">
               <button
-                key={size}
-                className={`p-3 rounded-md transition-all duration-200 ${
-                  selectedSize === size 
-                    ? 'bg-black border-2 font-bold border-gray-400 text-white hover:bg-white hover:text-black' 
-                    : 'bg-black font-semibold text-gray-400 hover:bg-gray-300 hover:text-black'
-                }`}
-                onClick={() => setSelectedSize(size)}
+                className="flex items-center justify-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-md shadow-md transition-colors duration-200 border border-gray-200"
+                onClick={() => alert('AR functionality would launch here')}
               >
-                {size.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                View in your room
               </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Wood finish selector */}
-        <div className="mt-4 p-4 rounded-lg border border border-gray-200 bg-black/50">
-          <h3 className="text-lg font-bold mb-3 text-gray-100">Wood Finish</h3>
-          <div className="flex space-x-4">
-            {woodFinishOptions.map((finish) => (
-              <button
-                key={finish.id}
-                className={`w-12 h-12 rounded-full border-2 transition-all ${
-                  materials.wood.color === finish.color 
-                    ? 'border-indigo-600 scale-110' 
-                    : 'border-gray-300'
-                }`}
-                style={{ backgroundColor: finish.color }}
-                onClick={() => changeWoodFinish(finish.color)}
-                title={finish.name}
-              />
-            ))}
-          </div>
+            </div>
+          )}
+          
+          {isCapturing && (
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+              <div className="bg-white rounded-lg p-4 flex flex-col items-center">
+                <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500 mb-2"></div>
+                <p className="text-sm font-medium">Capturing Screenshot...</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
