@@ -12,6 +12,8 @@ declare global {
 }
 
 // Sections data
+// ... (imports remain unchanged)
+
 const sections = [
   {
     id: 'furniture',
@@ -19,95 +21,152 @@ const sections = [
     items: [
       {
         id: 1,
-        title: 'Modern Chair',
-        description: 'Contemporary chair with premium design',
+        title: 'Modern Shelf',
+        description: 'Contemporary wooden display shelf',
         price: '$599',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
+        modelSrc: 'https://cdn.shopify.com/3d/models/4c942424574a04ff/asset_1.glb',
+        iosSrc: '',
       },
       {
         id: 2,
-        title: 'Modern Sofa',
-        description: 'Contemporary 3-seater sofa with premium upholstery',
-        price: '$1,299',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
+        title: 'Premium Chair',
+        description: 'Ergonomic designer chair',
+        price: '$899',
+        modelSrc: 'https://cdn.shopify.com/3d/models/abeac6240e09f6f9/asset5.glb',
+        iosSrc: '',
       },
       {
         id: 3,
-        title: 'Modern Sofa',
-        description: 'Contemporary 3-seater sofa with premium upholstery',
-        price: '$1,299',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/NeilArmstrong.usdz',
+        title: 'Coffee Table',
+        description: 'Modern coffee table with storage',
+        price: '$449',
+        modelSrc: 'https://cdn.shopify.com/3d/models/bccb7c4ea5f43e89/asset4.glb',
+        iosSrc: '',
       },
       {
         id: 4,
+        title: 'Side Table',
+        description: 'Contemporary side table with unique design',
+        price: '$349',
+        modelSrc: 'https://cdn.shopify.com/3d/models/7e09be251577599b/asser3.glb',
+        iosSrc: '',
+      },
+      {
+        id: 14,
+        title: 'Bathtub',
+        description: 'Modern freestanding bathtub for luxury bathrooms',
+        price: '$1,199',
+        modelSrc: 'https://cdn.shopify.com/3d/models/05859137728b24c9/bathtub.glb',
+        iosSrc: '',
+      },
+      {
+        id: 15,
+        title: 'Antique Desk',
+        description: 'Classic wooden antique writing desk',
+        price: '$1,499',
+        modelSrc: 'https://cdn.shopify.com/3d/models/3dba34d4261bb9a3/antique_desk.glb',
+        iosSrc: '',
+      },
+      {
+        id: 16,
+        title: 'Pub Counter',
+        description: 'Industrial style pub counter with rustic finish',
+        price: '$1,899',
+        modelSrc: 'https://cdn.shopify.com/3d/models/bb19bd814b72f706/pub_counter.glb',
+        iosSrc: '',
+      },
+      {
+        id: 17,
         title: 'Modern Sofa',
-        description: 'Contemporary 3-seater sofa with premium upholstery',
+        description: 'Sleek modern sofa for contemporary living rooms',
         price: '$1,299',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
+        modelSrc: 'https://cdn.shopify.com/3d/models/34d54a818d8632ea/modern_sofa.glb',
+        iosSrc: '',
       },
     ],
   },
   {
     id: 'sofas',
-    title: 'Sofas',
+    title: 'Accessories',
     items: [
       {
         id: 5,
-        title: 'Modern Sofa',
-        description: 'Contemporary 3-seater sofa with premium upholstery',
-        price: '$1,299',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
+        title: 'Lounge Chair',
+        description: 'Comfortable premium lounge chair',
+        price: '$599',
+        modelSrc: 'https://cdn.shopify.com/3d/models/cb0a6957ae2c5922/asset.glb',
+        iosSrc: '',
       },
       {
         id: 6,
-        title: 'Modern Sofa',
-        description: 'Contemporary 3-seater sofa with premium upholstery',
-        price: '$1,299',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
+        title: 'Apple Watch',
+        description: 'Premium smartwatch with advanced features',
+        price: '$399',
+        modelSrc: 'https://angle-3d-demo.myshopify.com/cdn/shop/3d/models/o/4acb33bc7cc53ea1/apple-watch.glb?v=0',
+        iosSrc: '',
       },
       {
         id: 7,
-        title: 'Modern Sofa',
-        description: 'Contemporary 3-seater sofa with premium upholstery',
-        price: '$1,299',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
+        title: 'Ray-Ban Sunglasses',
+        description: 'Classic sunglasses with UV protection',
+        price: '$149',
+        modelSrc: 'https://angle-3d-demo.myshopify.com/cdn/shop/3d/models/o/96e903cfa86e4bec/ray-ban.glb?v=0',
+        iosSrc: '',
       },
     ],
   },
   {
-    id: 'beds',
-    title: 'Beds',
+    id: 'electronics',
+    title: 'Electronics',
     items: [
       {
         id: 8,
-        title: 'Modern Sofa',
-        description: 'Contemporary 3-seater sofa with premium upholstery',
-        price: '$1,299',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
+        title: 'Cinema Camera',
+        description: 'Professional cinema camera for filmmaking',
+        price: '$5,999',
+        modelSrc: 'https://cdn.shopify.com/3d/models/122aa9e96161099f/cinema_camera.glb',
+        iosSrc: '',
       },
       {
         id: 9,
-        title: 'Modern Sofa',
-        description: 'Contemporary 3-seater sofa with premium upholstery',
-        price: '$1,299',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
+        title: 'Studio Microphone',
+        description: 'Professional studio condenser microphone',
+        price: '$349',
+        modelSrc: 'https://cdn.shopify.com/3d/models/17856a3ec41e1217/microphone.glb',
+        iosSrc: '',
       },
       {
         id: 10,
-        title: 'Modern Sofa',
-        description: 'Contemporary 3-seater sofa with premium upholstery',
-        price: '$1,299',
-        modelSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.glb',
-        iosSrc: 'https://modelviewer.dev/shared-assets/models/RobotExpressive.usdz',
+        title: 'MacBook Pro',
+        description: 'Apple MacBook Pro 16-inch (2021)',
+        price: '$2,499',
+        modelSrc: 'https://cdn.shopify.com/3d/models/1c4c1643fa4314cf/macbook_pro_16_2021.glb',
+        iosSrc: '',
+      },
+      {
+        id: 11,
+        title: 'Professional Monitor',
+        description: 'High-resolution professional display',
+        price: '$899',
+        modelSrc: 'https://cdn.shopify.com/3d/models/c319f49d796f6d9b/monitor.glb',
+        iosSrc: '',
+      },
+     
+      {
+        id: 12,
+        title: 'iPhone 16 Pro Max',
+        description: 'Latest Apple flagship smartphone',
+        price: '$1,099',
+        modelSrc: 'https://cdn.shopify.com/3d/models/f0733ecc7a32b9d8/iphone_16_pro_max.glb',
+        iosSrc: '',
+      },
+      {
+        id: 13,
+        title: 'Kitchen Appliance Set',
+        description: 'Oven, microwave, and wine cooler combo',
+        price: '$2,599',
+        modelSrc: 'https://cdn.shopify.com/3d/models/f119e47f0a11dd8a/oven_microwave_and_winecooler.glb',
+        iosSrc: '',
       },
     ],
   },
@@ -184,13 +243,19 @@ export default function LiveExamples() {
               >
                 <div className="rounded-xl p-4">
                   <model-viewer
+                    className="model-viewer-no-ui"
                     src={activeSection.items[(activeItemIndex - 1 + activeSection.items.length) % activeSection.items.length].modelSrc}
                     camera-controls
-                    auto-rotate
                     disable-zoom
                     interaction-prompt="none"
                     style={{ width: "100%", height: "300px" }}
                     background-color="transparent"
+                    ui-info="no"
+                    ar-status="not-presenting"
+                    show-annotations="false"
+                    environment-image="neutral"
+                    enable-pan="false"
+                    reveal="auto"
                   ></model-viewer>
                 </div>
               </div>
@@ -202,11 +267,18 @@ export default function LiveExamples() {
                 <div className="flex flex-col items-center gap-8">
                   <div className="w-full rounded-xl p-4">
                     <model-viewer
+                      className="model-viewer-no-ui"
                       src={activeProduct.modelSrc}
                       camera-controls
                       auto-rotate
                       style={{ width: "100%", height: "450px" }}
                       background-color="transparent"
+                      ui-info="no"
+                      ar-status="not-presenting"
+                      show-annotations="false"
+                      environment-image="neutral"
+                      enable-pan="false"
+                      reveal="auto"
                     ></model-viewer>
                   </div>
                   
@@ -232,13 +304,19 @@ export default function LiveExamples() {
               >
                 <div className="rounded-xl p-4">
                   <model-viewer
+                    className="model-viewer-no-ui"
                     src={activeSection.items[(activeItemIndex + 1) % activeSection.items.length].modelSrc}
                     camera-controls
-                    auto-rotate
                     disable-zoom
                     interaction-prompt="none"
                     style={{ width: "100%", height: "300px" }}
                     background-color="transparent"
+                    ui-info="no"
+                    ar-status="not-presenting"
+                    show-annotations="false"
+                    environment-image="neutral"
+                    enable-pan="false"
+                    reveal="auto"
                   ></model-viewer>
                 </div>
               </div>
